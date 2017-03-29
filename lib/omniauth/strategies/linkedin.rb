@@ -42,6 +42,14 @@ module OmniAuth
       extra do
         { 'raw_info' => raw_info }
       end
+      
+      def callback_url
+        if options[:callback_url]
+          options[:callback_url]
+        else
+          super
+        end
+      end
 
       def raw_info
         fields = options.fields
